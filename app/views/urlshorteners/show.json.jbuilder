@@ -1,0 +1,1 @@
+json.partial! "urlshorteners/urlshortener", urlshortener: @urlshortener

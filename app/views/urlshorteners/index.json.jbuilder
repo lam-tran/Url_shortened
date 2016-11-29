@@ -1,0 +1,1 @@
+json.array! @urlshorteners, partial: 'urlshorteners/urlshortener', as: :urlshortener

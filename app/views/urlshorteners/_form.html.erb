@@ -1,0 +1,25 @@
+<%= form_for(urlshortener) do |f| %>
+  <% if urlshortener.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(urlshortener.errors.count, "error") %> prohibited this urlshortener from being saved:</h2>
+
+      <ul>
+      <% urlshortener.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group">
+    <!--%= f.label :url % -->
+    <span class="input-group-addon">URL</span>
+    <%= f.text_field :url, class: "form-control", placeholder: "Enter Url"%>
+  </div>
+  <br>
+  <div>
+     <%= f.submit "Create Url", class: "btn btn-info btn-md" %>
+  </div>
+
+
+<% end %>

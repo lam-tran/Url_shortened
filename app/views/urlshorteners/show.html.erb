@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @urlshortener.url %>
+</p>
+
+<p>
+  <strong>Shortened:</strong>
+  <%= "#{request.protocol}#{request.host}:#{request.port}/" + @urlshortener.shortened %>
+</p>
+
+<p>
+  <strong>Clicks:</strong>
+  <%= @urlshortener.clicks %>
+</p>
+
+<%= link_to 'Back', urlshorteners_path %>

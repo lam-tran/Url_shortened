@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Url Shorteners</h1>
+
+<%= render 'form', urlshortener: @urlshortener %>
+
+<table class="table table-condensed">
+  <thead>
+    <trc class="active">
+      <th>Url</th>
+      <th>Url_Shortened</th>
+      <th>Click counter</th>
+      <th>Expiration time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urlshorteners.each do |urlshortener| %>
+      <tr class="active">
+        <td><%= urlshortener.url %></td>
+        <td><%= link_to "#{request.protocol}#{request.host}:#{request.port}/" + urlshortener.shortened, access_urlshorteners_path(urlshortener.shortened), :target => "_blank" %></td>
+        <td><%= urlshortener.clicks %></td>
+        <td><%= urlshortener.expiration.strftime("%b %d %Y, %H:%M") %></td>
+        <td><%= link_to 'Destroy', urlshortener, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
